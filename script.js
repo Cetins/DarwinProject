@@ -1,5 +1,5 @@
-const button = document.getElementById("input");
-const input = document.getElementById("submit");
+const button = document.querySelector('#submit');
+const input = document.querySelector('#input');
 
 function inputLength() {
     return input.value.length;
@@ -25,6 +25,6 @@ function thanksAfterKeypress(event) {
     input.value = "";
 }
 
-button.addEventListener('click', thanksAfterClick, true);
+button.addEventListener("click", thanksAfterClick, true);
 
 input.addEventListener("keypress", thanksAfterKeypress, true);
