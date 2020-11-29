@@ -1,5 +1,6 @@
-const button = document.querySelector('#submit');
 const input = document.querySelector('#input');
+const button = document.querySelector('#submit');
+
 
 function inputLength() {
     return input.value.length;
@@ -8,23 +9,24 @@ function inputLength() {
 function thanksAfterClick() {
     if (inputLength() > 0) {
         alert("Thanks for subscribing our newsletter");
+        input.value = "";
     }
-    else if (inputLength() < 0) {
+    else {
         alert("Please enter your email");
     }
-    input.value = "";
+    
 }
  
 function thanksAfterKeypress(event) {
     if (inputLength() > 0 && event.which === 13) {
         alert("Thanks for subscribing our newsletter");
+        input.value = "";
     }
-    else if (inputLength() < 0) {
+    else if (event.which === 13 && inputLength() < 0) {
         alert("Please enter your email");
-    }
-    input.value = "";
+    }    
 }
 
-button.addEventListener("click", thanksAfterClick, true);
+button.addEventListener("click", thanksAfterClick);
 
-input.addEventListener("keypress", thanksAfterKeypress, true);
+input.addEventListener("keypress", thanksAfterKeypress);
